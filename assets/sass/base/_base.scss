@@ -1,5 +1,7 @@
 @use "../abstracts/core";
 
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
 *,
 *::after,
 *::before {
@@ -28,8 +30,6 @@ html {
 body {
   font-family: core.$font-primary;
   font-weight: 300;
-  line-height: 1.6;
-  color: var(--font-color-primary);
-
-  background-color: var(--color-primary);
+  line-height: 1.2;
+  color: var(--fc-dark);
 }
