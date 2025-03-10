@@ -1,0 +1,35 @@
+@use "../abstracts/core";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 75%;
+  box-sizing: border-box;
+
+  @include core.respond(bdesk) {
+    font-size: 62.5%; // 1rem = 10px
+  }
+
+  @include core.respond(tland) {
+    font-size: 56.25%; // 1rem = 9px
+  }
+
+  @include core.respond(tport) {
+    font-size: 50%; // 1rem = 8px
+  }
+}
+
+body {
+  font-family: core.$font-primary;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--font-color-primary);
+
+  background-color: var(--color-primary);
+}
