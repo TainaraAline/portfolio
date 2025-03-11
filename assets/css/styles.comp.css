@@ -97,6 +97,10 @@ body {
   background-color: var(--color-secondary);
 }
 
+a.btn {
+  padding: 2rem 3rem 1rem !important;
+}
+
 .social-sidebar {
   position: fixed;
   min-height: 80vh;
@@ -124,7 +128,7 @@ body {
   width: auto;
 }
 
-.project__container {
+.project {
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -172,7 +176,7 @@ body {
   margin: auto 0;
 }
 
-.home__container {
+.home {
   min-height: 100vh;
   width: 100%;
   background-image: url(../img/bg-primary.svg);
@@ -203,7 +207,19 @@ body {
   font-size: var(--fs-m);
 }
 
-.brtvl__container {
+.portfolio {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url(../img/bg-primary.svg);
+  display: flex;
+  flex-direction: column;
+  color: var(--fc-light);
+  font-size: var(--fs-m);
+  padding: 7rem;
+  padding-right: 15rem;
+}
+
+.brtvl {
   background-image: url(../img/bg-yellow.svg);
 }
 
