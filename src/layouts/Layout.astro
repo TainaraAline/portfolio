@@ -1,0 +1,46 @@
+---
+import "../styles/global.css";
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style lang="scss">
+  @use "../styles/core";
+
+  html {
+    font-size: 75%;
+    box-sizing: border-box;
+
+    @include core.respond(bdesk) {
+      font-size: 62.5%; // 1rem = 10px
+    }
+
+    @include core.respond(tland) {
+      font-size: 56.25%; // 1rem = 9px
+    }
+
+    @include core.respond(tport) {
+      font-size: 50%; // 1rem = 8px
+    }
+  }
+
+  body {
+    font-family: core.$font-primary;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--fc-dark);
+  }
+</style>

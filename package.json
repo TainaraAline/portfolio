@@ -1,26 +1,15 @@
 {
-  "name": "portfolio-official",
-  "version": "1.0.0",
-  "description": "My official portfolio",
-  "main": "index.js",
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "watch:sass": "sass src/assets/sass/main.scss src/assets/css/styles.css -w",
-    "devserver": "lite-server --baseDir=\"src\"",
-    "dev": "npm-run-all --parallel devserver watch:sass",
-
-    "compile:sass": "sass src/assets/sass/main.scss src/assets/css/styles.comp.css",
-    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' src/assets/css/styles.comp.css -o src/assets/css/styles.prefix.css",
-    "compress:css": "sass --style compressed src/assets/css/styles.prefix.css src/assets/css/styles.css",
-    "build": "npm-run-all compile:sass prefix:css compress:css"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "lite-server": "^2.6.1",
-    "npm-run-all": "^4.1.5",
-    "postcss-cli": "^11.0.0",
+  "dependencies": {
+    "astro": "^5.4.3",
     "sass": "^1.85.1"
   }
 }

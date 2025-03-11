@@ -1,0 +1,45 @@
+---
+const { variant, class: className, ...rest } = Astro.props;
+const externalClasses = className?.split(" ") ?? [];
+const variantClass = { [`btn--${variant}`]: true };
+---
+
+<a {...rest} class:list={["btn", ...externalClasses, variantClass]}><slot /></a>
+
+<style lang="scss">
+  .btn {
+    &,
+    &:link,
+    &:visited {
+      font-size: 5rem;
+      font-weight: 700;
+      display: inline-block;
+      border: none;
+      border-radius: 3rem;
+      padding: 1.5rem 3rem;
+      line-height: 1;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.4s ease;
+    }
+
+    &:hover {
+      transform: translateY(-0.4rem);
+      box-shadow: 0 0.6rem 0.6rem 0 rgba(0, 0, 0, 0.8);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    &--primary {
+      color: var(--color-primary);
+      background-color: var(--color-secondary);
+    }
+  }
+
+  a.btn {
+    padding: 2rem 3rem 1rem !important;
+  }
+</style>
