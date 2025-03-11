@@ -1,0 +1,95 @@
+---
+import Layout from "./Layout.astro";
+import H3 from "../components/base/typography/h3.astro";
+import H4 from "../components/base/typography/h4.astro";
+
+import bgSecondary from "../assets/bg-yellow.svg";
+
+const { number, title, subtitle, url, year, type, repo, details } = Astro.props;
+---
+
+<Layout>
+  <main class="project">
+    <header class="project__header">
+      <h1 class="project__header--number">{number}</h1>
+      <H3>{title}<br />{subtitle}</H3>
+    </header>
+    <section class="project__content">
+      <iframe src={url} class="project__demo"></iframe>
+      <aside class="project__details">
+        <H4>{year}</H4>
+        <span class="project__type">{type}</span>
+        <a href={url} target="_blank" class="project__link"
+          >Check the Live Demo &rarr;</a
+        >
+        <a href={repo} target="_blank" class="project__link"
+          >Project on Github</a
+        >
+        <p class="project__description">
+          {details}
+        </p>
+      </aside>
+    </section>
+  </main>
+</Layout>
+
+<style lang="scss" define:vars={{ bgSecondary: `url(${bgSecondary.src})` }}>
+  .project {
+    background-image: var(--bgSecondary);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 8rem;
+
+    &__header {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+
+      &--number {
+        font-size: 11.5rem;
+        line-height: 0.9;
+      }
+    }
+
+    &__content {
+      display: flex;
+      align-items: stretch;
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    &__demo {
+      height: 90vh;
+      flex: 0 0 60%;
+    }
+
+    &__details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__type {
+      font-size: 2rem;
+      margin: 1rem 0 4rem;
+    }
+
+    &__link:link,
+    &__link:visited {
+      font-size: 2rem;
+      color: currentColor;
+      display: inline-block;
+      width: max-content;
+
+      &:not(:first-of-type) {
+        margin-top: 1rem;
+      }
+    }
+
+    &__description {
+      font-size: 2rem;
+      margin: auto 0;
+    }
+  }
+</style>
