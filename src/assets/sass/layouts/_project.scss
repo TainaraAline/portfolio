@@ -1,0 +1,59 @@
+.project {
+  &__container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 8rem;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+
+    &--number {
+      font-size: 11.5rem;
+      line-height: 0.9;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: stretch;
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  &__demo {
+    height: 90vh;
+    flex: 0 0 60%;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__type {
+    font-size: 2rem;
+    margin: 1rem 0 4rem;
+  }
+
+  &__link:link,
+  &__link:visited {
+    font-size: 2rem;
+    color: currentColor;
+    display: inline-block;
+    width: max-content;
+
+    &:not(:first-of-type) {
+      margin-top: 1rem;
+    }
+  }
+
+  &__description {
+    font-size: 2rem;
+    margin: auto 0;
+  }
+}
