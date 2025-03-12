@@ -1,0 +1,30 @@
+---
+import MainLayout from "../layouts/main.astro";
+
+import H1 from "../components/base/typography/h1.astro";
+import H3 from "../components/base/typography/h3.astro";
+---
+
+<MainLayout pageTitle="Tainara Lima">
+  <div class="not-found">
+    <H1 class="not-found__title">Ooooops, sorry!</H1>
+    <H3 class="not-found__subtitle"
+      >This page is under construction...<br />Please, come back later!</H3
+    >
+  </div>
+</MainLayout>
+
+<style lang="scss">
+  .not-found {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+
+    &__subtitle {
+      text-align: center;
+    }
+  }
+</style>

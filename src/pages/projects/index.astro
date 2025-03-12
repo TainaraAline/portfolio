@@ -1,0 +1,60 @@
+---
+import MainLayout from "../../layouts/main.astro";
+
+import H2 from "../../components/base/typography/h2.astro";
+
+import { CATEGORIES } from "../../config/categories";
+import { normalizePath } from "../../utils/path";
+---
+
+<MainLayout pageTitle="Tainara Aline - Projects">
+  <H2 class="projects__title">Projects</H2>
+  <section class="projects__category">
+    {
+      CATEGORIES.map((category) => (
+        <a
+          class="projects__link"
+          href={normalizePath("/projects", category.path)}
+        >
+          <H2>{category.title}</H2>
+        </a>
+      ))
+    }
+  </section>
+</MainLayout>
+
+<style lang="scss">
+  @use "../../styles/core";
+
+  .projects {
+    &__title {
+      margin-top: 8rem;
+    }
+
+    &__category {
+      margin-top: 8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6rem;
+    }
+
+    &__link {
+      &:link,
+      &:visited {
+        color: currentColor;
+        text-decoration: none;
+        flex: 0 0 calc(50% - 3rem);
+        height: 40vh;
+        background-color: var(--color-primary);
+        border-radius: 2rem;
+        padding: 2rem 3rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        transition: all 0.4s ease;
+      }
+
+      @include core.link-effects;
+    }
+  }
+</style>

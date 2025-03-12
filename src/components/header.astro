@@ -1,0 +1,26 @@
+---
+import logo from "../assets/logo.svg";
+---
+
+<a href="/portfolio" class="header">
+  <img class="header__logo" src={logo.src} alt="Logo" />
+  <span class="header__title">Web<br />Designer</span>
+</a>
+
+<style lang="scss">
+  .header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: currentColor;
+    text-decoration: none;
+
+    &__logo {
+      height: 4.8rem;
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+  }
+</style>

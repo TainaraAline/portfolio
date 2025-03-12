@@ -1,0 +1,28 @@
+---
+import Layout from "./Layout.astro";
+import Header from "../components/header.astro";
+
+import bgPrimary from "../assets/bg-primary.jpg";
+
+const { pageTitle } = Astro.props;
+---
+
+<Layout title={pageTitle}>
+  <main class="main">
+    <Header />
+    <slot />
+  </main>
+</Layout>
+
+<style lang="scss" define:vars={{ bgPrimary: `url(${bgPrimary.src})` }}>
+  .main {
+    min-height: 100vh;
+    width: 100%;
+    background-image: var(--bgPrimary);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    font-size: var(--fs-m);
+    padding: 4rem 7rem 7rem 7rem;
+  }
+</style>

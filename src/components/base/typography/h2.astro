@@ -1,0 +1,14 @@
+---
+const { class: className, ...rest } = Astro.props;
+---
+
+<h2 {...rest} class:list={["h2", ...(className?.split(" ") ?? [])]}>
+  <slot />
+</h2>
+
+<style lang="scss">
+  .h2 {
+    font-size: 5rem;
+    font-weight: 600;
+  }
+</style>

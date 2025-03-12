@@ -1,0 +1,88 @@
+---
+import MainLayout from "../../layouts/main.astro";
+
+import H2 from "../../components/base/typography/h2.astro";
+import { Image } from "astro:assets";
+
+import { normalizePath } from "../../utils/path";
+import { CATEGORIES } from "../../config/categories";
+import { PROJECTS } from "../../config/projects";
+
+export function getStaticPaths() {
+  return CATEGORIES.map((category) => ({
+    params: { category: category.path },
+  }));
+}
+
+const { category } = Astro.params;
+
+const currentCategory = CATEGORIES.find((cat) => cat.path.includes(category));
+
+if (!currentCategory?.path) throw new Error("Failed to load projects");
+
+const projects = PROJECTS[currentCategory.path] || [];
+---
+
+<MainLayout pageTitle={`Tainara Aline - ${currentCategory?.title}`}>
+  <H2 class="category__title">{currentCategory?.title} Projects</H2>
+  <section class="category__projects">
+    {
+      projects.map((project) => (
+        <a href={normalizePath("/project", project.path)} class="project__link">
+          <Image
+            src={project.cover}
+            class="project__cover"
+            alt={project.title}
+          />
+          <span class="project__title">{project.title}</span>
+        </a>
+      ))
+    }
+  </section>
+</MainLayout>
+
+<style lang="scss">
+  @use "../../styles/core";
+
+  .category {
+    &__title {
+      margin-top: 8rem;
+    }
+
+    &__projects {
+      margin-top: 8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6rem;
+    }
+  }
+
+  .project {
+    &__link {
+      &:link,
+      &:visited {
+        color: currentColor;
+        text-decoration: none;
+        flex: 1 0 calc(50% - 3rem);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+      }
+    }
+
+    &__cover {
+      width: 40rem;
+      height: 35rem;
+      border-radius: 2rem;
+      object-fit: cover;
+      transition: all 0.4s ease;
+    }
+
+    &__link:hover &__cover {
+      transform: scale(1.01);
+      box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.8);
+    }
+  }
+</style>
