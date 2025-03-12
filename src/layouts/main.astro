@@ -1,15 +1,25 @@
 ---
 import Layout from "./Layout.astro";
 import Header from "../components/header.astro";
+import Link from "../components/base/link.astro";
 
 import bgPrimary from "../assets/bg-primary.jpg";
 
-const { pageTitle } = Astro.props;
+const { pageTitle, back } = Astro.props;
 ---
 
 <Layout title={pageTitle}>
   <main class="main">
-    <Header />
+    <header class="main__header">
+      <Header />
+      {
+        !!back ? (
+          <Link variant="primary" href={back.path}>
+            {back.text}
+          </Link>
+        ) : null
+      }
+    </header>
     <slot />
   </main>
 </Layout>
@@ -24,5 +34,11 @@ const { pageTitle } = Astro.props;
     flex-direction: column;
     font-size: var(--fs-m);
     padding: 4rem 7rem 7rem 7rem;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 </style>

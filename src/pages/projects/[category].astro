@@ -23,7 +23,10 @@ if (!currentCategory?.path) throw new Error("Failed to load projects");
 const projects = PROJECTS[currentCategory.path] || [];
 ---
 
-<MainLayout pageTitle={`Tainara Aline - ${currentCategory?.title}`}>
+<MainLayout
+  pageTitle={`Tainara Aline - ${currentCategory?.title}`}
+  back={{ path: "/portfolio/projects", text: "Projects" }}
+>
   <H2 class="category__title">{currentCategory?.title} Projects</H2>
   <section class="category__projects">
     {
