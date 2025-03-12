@@ -53,9 +53,12 @@ const projects = PROJECTS[currentCategory.path] || [];
     }
 
     &__projects {
-      margin-top: 8rem;
+      margin: 8rem auto 0;
+      width: 100%;
+      max-width: 120rem;
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 6rem;
     }
   }
@@ -66,7 +69,6 @@ const projects = PROJECTS[currentCategory.path] || [];
       &:visited {
         color: currentColor;
         text-decoration: none;
-        flex: 1 0 calc(50% - 3rem);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -86,6 +88,11 @@ const projects = PROJECTS[currentCategory.path] || [];
     &__link:hover &__cover {
       transform: scale(1.01);
       box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.8);
+    }
+
+    &__link:active &__cover {
+      transform: scale(1);
+      box-shadow: none;
     }
   }
 </style>
